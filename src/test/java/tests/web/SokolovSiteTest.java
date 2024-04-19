@@ -22,4 +22,17 @@ public class SokolovSiteTest extends BaseTests{
         checkCatalogItems.menuShouldHaveMenuElement(menuElementName);
 
     }
+
+    @Feature("Проверка сайта")
+    @Story("Проверка что при переходе из меню Каталога на странице отображаются карточки изделий ")
+    @CsvFileSource(resources = "/test-data/menu_elements.csv")
+    @ParameterizedTest(name = "Проверить отображение карточек изделий в пункте меню {0}")
+    void checkClickMenuItemsTest (String menuElementName) {
+        mainpage.openMainPage()
+                .openCatalog()
+                .clickMenuItem(menuElementName);
+        checkCatalogItems.checkHeaderTitle(menuElementName)
+                .checkProductList();
+
+    }
 }
