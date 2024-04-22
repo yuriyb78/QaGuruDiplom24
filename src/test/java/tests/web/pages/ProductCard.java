@@ -1,15 +1,17 @@
 package tests.web.pages;
 
+
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+
 
 public class ProductCard {
 
     private final SelenideElement btnProductBucket = $("[class^='Product_sklv-product-page__add-to-cart']"),
-            sizeItem = $("[class^='ProductSizes_sklv-sizes__wrapper'");
+            sizeItem = $("[class^='Sizes_sizes'"),
+            btnConfirmOrder = $("[class^='styles_footer']");
 
     @Step("Выбираю размер изделия")
     public ProductCard chooseSizeItem (){
@@ -23,5 +25,9 @@ public class ProductCard {
         return this;
     }
 
+    @Step("Нажать кнопку 'Оформить заказ'")
+    public void clickButtonConfirmOrder () {
+        btnConfirmOrder.find(byText("Оформить заказ")).click();
+    }
 
 }
