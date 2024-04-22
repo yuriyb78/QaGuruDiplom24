@@ -2,12 +2,8 @@ package tests.web.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-
-import java.time.Duration;
-
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static org.openqa.selenium.Keys.ENTER;
 
 public class Mainpage {
 
@@ -28,9 +24,9 @@ public class Mainpage {
         return this;
     }
     @Step("Переходим в пункт меню {menuElementName}")
-    public Mainpage clickMenuItem (String menuElementName) {
+    public void clickMenuItem (String menuElementName) {
         rightCatalogMenu.find(byText(menuElementName)).click();
-        return this;
+
     }
 
     @Step("Открываю окно выбора города покупателя")

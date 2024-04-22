@@ -6,12 +6,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import tests.web.pages.BasketPage;
-import tests.web.pages.CatalogPage;
-import tests.web.pages.Mainpage;
-import tests.web.pages.ProductCard;
+import tests.web.pages.*;
 import tests.web.pages.components.CheckBasket;
 import tests.web.pages.components.CheckCatalogItems;
+import tests.web.pages.components.CheckFavorites;
 import tests.web.pages.components.CheckMainpage;
 import tests.web.utils.GetValueFromPage;
 
@@ -24,6 +22,8 @@ public class SokolovSiteTest extends BaseTests{
     CheckBasket checkBasket = new CheckBasket();
     BasketPage basketPage = new BasketPage();
     CheckMainpage checkMainpage = new CheckMainpage();
+    FavoritesPage favoritesPage = new FavoritesPage();
+    CheckFavorites checkFavorites= new CheckFavorites();
 
     @Feature("Проверка каталога")
     @Story("Проверка раздела Каталог на наличие элемента")
@@ -93,5 +93,39 @@ public class SokolovSiteTest extends BaseTests{
                 .setInputCity();
 
         checkMainpage.checkCityName();
+    }
+
+    @Feature("Проверка добавления изделия в избранное")
+    @Story("Добавление изделия в избранное")
+    @DisplayName("Проверить добавление изделия в избранное")
+    @Test
+    void checkAddItemToFavorites () {
+        catalogPage.openPageWithItemRings()
+                .chooseItemFromCatalog();
+        productCard.addItemToFavorites();
+
+        String article = new GetValueFromPage().getArticulFromProductCard();
+
+        checkFavorites.checkIconFavoritesColor()
+                .checkFavoritesCounter();
+
+        productCard.clickBthFavorites();
+
+        checkFavorites.checkFavorites()
+                .checkArticulNumber(article);
+
+    }
+
+    @Feature("Проверка удаления изделия из избранного")
+    @Story("Удаление изделия из избранного")
+    @DisplayName("Проверить удаление изделия из избранного")
+    @Test
+    void checkDeleteItemFromFavorites () {
+        catalogPage.openPageWithItemRings()
+                .chooseItemFromCatalog();
+        productCard.addItemToFavorites()
+                .clickBthFavorites();
+        favoritesPage.deleteFromFavorites();
+        checkFavorites.checkFavoritesisEmpty();
     }
 }

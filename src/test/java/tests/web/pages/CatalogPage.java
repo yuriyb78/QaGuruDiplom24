@@ -3,8 +3,7 @@ package tests.web.pages;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class CatalogPage {
 
@@ -20,4 +19,5 @@ public class CatalogPage {
     public void chooseItemFromCatalog () {
         chooseItem.click();
     }
+
 }

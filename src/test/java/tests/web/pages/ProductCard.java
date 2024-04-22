@@ -11,7 +11,9 @@ public class ProductCard {
 
     private final SelenideElement btnProductBucket = $("[class^='Product_sklv-product-page__add-to-cart']"),
             sizeItem = $("[class^='Sizes_sizes'"),
-            btnConfirmOrder = $("[class^='styles_footer']");
+            btnConfirmOrder = $("[class^='styles_footer']"),
+            btnAddFavorites = $("[data-qa='main_add_to_favorite']"),
+            btnHeaderFavorites= $("[data-qa='header_favorites_btn']");
 
     @Step("Выбираю размер изделия")
     public ProductCard chooseSizeItem (){
@@ -28,6 +30,17 @@ public class ProductCard {
     @Step("Нажать кнопку 'Оформить заказ'")
     public void clickButtonConfirmOrder () {
         btnConfirmOrder.find(byText("Оформить заказ")).click();
+    }
+
+    @Step("Добавляю изделие в каталог")
+    public ProductCard addItemToFavorites () {
+        btnAddFavorites.click();
+        return this;
+    }
+
+    @Step("Перехожу в Избранное")
+    public void clickBthFavorites () {
+        btnHeaderFavorites.click();
     }
 
 }

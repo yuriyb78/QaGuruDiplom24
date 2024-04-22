@@ -4,7 +4,6 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
-import io.restassured.RestAssured;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -27,7 +26,7 @@ public class BaseTests {
         Configuration.remote = driverConfig.browserUrl();
         Configuration.baseUrl = "https://sokolov.ru";
         Configuration.pageLoadStrategy = "eager";
-//        Configuration.holdBrowserOpen = true; // Чтобы браузер не закрывался после выполенения теста
+        Configuration.holdBrowserOpen = true; // Чтобы браузер не закрывался после выполенения теста
 
         SelenideLogger.addListener("allure", new AllureSelenide());
         DesiredCapabilities capabilities = new DesiredCapabilities();

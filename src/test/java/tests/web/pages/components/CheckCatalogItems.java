@@ -14,8 +14,8 @@ import static com.codeborne.selenide.Selenide.$$;
 public class CheckCatalogItems {
 
     private final SelenideElement rightCatalogMenu = $("[class^='RightNav_catalog-menu_right-el-wrapper']"),
-            catalogHeaderTitle = $("[class^='styles_catalog-layout-header_title']"),
-            btnProductBucket = $("[class^='Product_sklv-product-page__add-to-cart']");
+            catalogHeaderTitle = $("[class^='styles_catalog-layout-header_title']");
+
     private final ElementsCollection productList = $$("[data-qa='product-list']");
 
     @Step("Проверяем наличие пункта меню {menuElementName}")
@@ -31,16 +31,9 @@ public class CheckCatalogItems {
     }
 
     @Step ("Проверяем что страница с изделиями не пуста")
-    public CheckCatalogItems checkProductList () {
+    public void checkProductList () {
         productList.shouldBe(sizeGreaterThan(0));
-        return this;
-    }
 
-    @Step("Проверяем открытие карточки изделия")
-    public CheckCatalogItems checkProductCard () {
-        btnProductBucket.shouldBe(exist,visible);
-        return this;
     }
-
 
 }
