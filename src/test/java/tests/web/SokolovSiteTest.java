@@ -12,6 +12,7 @@ import tests.web.pages.Mainpage;
 import tests.web.pages.ProductCard;
 import tests.web.pages.components.CheckBasket;
 import tests.web.pages.components.CheckCatalogItems;
+import tests.web.pages.components.CheckMainpage;
 import tests.web.utils.GetValueFromPage;
 
 public class SokolovSiteTest extends BaseTests{
@@ -22,6 +23,7 @@ public class SokolovSiteTest extends BaseTests{
     ProductCard productCard = new ProductCard();
     CheckBasket checkBasket = new CheckBasket();
     BasketPage basketPage = new BasketPage();
+    CheckMainpage checkMainpage = new CheckMainpage();
 
     @Feature("Проверка каталога")
     @Story("Проверка раздела Каталог на наличие элемента")
@@ -79,5 +81,17 @@ public class SokolovSiteTest extends BaseTests{
         basketPage.deleteFromCart();
         checkBasket.checkBasketIsEmpty();
 
+    }
+
+    @Feature("Проверка смены города покупателя")
+    @Story("Смена города покупателя")
+    @DisplayName("Проверить смену города покупателя")
+    @Test
+    void changeCityTest () {
+        mainpage.openMainPage()
+                .openSelectCity()
+                .setInputCity();
+
+        checkMainpage.checkCityName();
     }
 }
