@@ -26,7 +26,7 @@ public class BaseTests {
         Configuration.remote = driverConfig.browserUrl();
         Configuration.baseUrl = "https://sokolov.ru";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true; // Чтобы браузер не закрывался после выполенения теста
+//        Configuration.holdBrowserOpen = true; // Чтобы браузер не закрывался после выполенения теста
 
         SelenideLogger.addListener("allure", new AllureSelenide());
         DesiredCapabilities capabilities = new DesiredCapabilities();
