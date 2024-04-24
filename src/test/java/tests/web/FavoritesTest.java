@@ -48,6 +48,6 @@ public class FavoritesTest extends BaseTests {
         productCard.addItemToFavorites()
                 .clickBthFavorites();
         favoritesPage.deleteFromFavorites();
-        checkFavorites.checkFavoritesisEmpty();
+        checkFavorites.checkFavoritesIsEmpty();
     }
 }

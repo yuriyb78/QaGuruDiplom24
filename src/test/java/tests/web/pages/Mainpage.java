@@ -2,6 +2,8 @@ package tests.web.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import tests.web.utils.ChooseClientCity;
+
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -11,6 +13,8 @@ public class Mainpage {
                                 rightCatalogMenu = $("[class^='RightNav_catalog-menu_right-el-wrapper']"),
                                 btnSelectCity = $("[data-qa='header_city_select_btn']"),
                                 inputCity = $(".react-select__input");
+
+    ChooseClientCity chooseClientCity = new ChooseClientCity();
 
     @Step("Открываем главную страницу сайта компании Sokolov")
     public Mainpage openMainPage() {
@@ -38,7 +42,7 @@ public class Mainpage {
     @Step("Ввожу название города")
     public void setInputCity () {
         inputCity.click();
-        inputCity.setValue("Кострома");
+        inputCity.setValue(chooseClientCity.getCityName());
         sleep(2000);
         inputCity.pressEnter();
     }

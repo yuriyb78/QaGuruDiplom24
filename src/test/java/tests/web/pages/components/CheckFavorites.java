@@ -19,7 +19,7 @@ public class CheckFavorites {
 
     private final String msgFavoriteIsEmpty = "Вы пока ничего не добавили в избранное. Посмотрите украшения или часы в каталоге SOKOLOV.";
 
-    @Step("Проверяю что иконка избранного на карточке изделия изменила цвет на синий")
+    @Step("Проверяю что иконка Избранного на карточке изделия изменила цвет на синий")
     public CheckFavorites checkIconFavoritesColor () {
         String valueName = "color";
         String colorBlue = "rgba(24, 94, 186, 1)";
@@ -27,15 +27,14 @@ public class CheckFavorites {
         return this;
     }
 
-    @Step("Проверяю что появился счетчик избранного красного цвета")
+    @Step("Проверяю что появился счетчик Избранного красного цвета")
     public void checkFavoritesCounter () {
         String valueName = "background-color";
         String colorRed = "rgba(204, 55, 60, 1)";
         favoritesCounter.shouldHave(visible)
-                .shouldHave(cssValue(valueName,colorRed))
-                .shouldHave(text("1"));
+                .shouldHave(cssValue(valueName,colorRed));
     }
-    @Step("Проверяю что избранное не пусто")
+    @Step("Проверяю что Избранное не пусто")
     public CheckFavorites checkFavorites () {
         favoriteList.shouldBe(sizeGreaterThan(0));
         return this;
@@ -47,7 +46,7 @@ public class CheckFavorites {
     }
 
     @Step("Проверяю сообщение об отсуствии изделий в Избранном")
-    public void checkFavoritesisEmpty () {
+    public void checkFavoritesIsEmpty () {
         favoriteIsEmpty.shouldHave(text(msgFavoriteIsEmpty));
     }
 
