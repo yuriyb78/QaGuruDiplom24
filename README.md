@@ -1,6 +1,6 @@
-# Проект по автоматизации тестовых сценариев для сайта БФТ-Холдинг
+# Проект по автоматизации тестовых сценариев для сайта SOKOLOV
 <p align="center">
-<a href="https://bftcom.com"><img width="25% title="Логотип БФТ" src="https://bftcom.com/local/templates/bftnew/img/logo.svg"></a>
+<a href="https://sokolov.ru/"><img width="50% title="Логотип SOKOLOV" src="https://prmqd.ru/storage/NRpyVlwL7QYbjX6AA0eMkOhpPKmTEIUylAqfll8O.jpg"></a>
 </p>
 
 ## :scroll: Содержание:
@@ -52,7 +52,7 @@ gradle clean test
 ### Запуск тестов из Jenkins (с указанием параметров)
 ```
 clean
-test
+${TYPETEST}
 "-Dbrowser.name=${BROWSER}"
 "-Dbrowser.version=${BROWSER_VERSION}"
 "-Dbrowser.size=${BROWSER_SIZE}"
@@ -61,6 +61,12 @@ test
 
 ### Параметры сборки
 
+* <code>TYPETEST</code> - выбор тестируемой функциональности
+    1. Test- запуск всех тестов в проекте
+    2. Mainpage - тестирование главной страницы
+    3. Catalog - тестирование каталога
+    4. Basket  - тестирование работы с Корзиной
+    5. Favorites - тестирование работы с Избранным
 * <code>RMT_BROWSER_URL</code> – адрес удаленного сервера, на котором будут запускаться тесты. По умолчанию – <code>https://user1:1234@selenoid.autotests.cloud/wd/hub</code>
 * <code>BROWSER</code> – браузер, в котором будут выполняться тесты. По умолчанию – <code>chrome</code>.
 * <code>BROWSER_VERSION</code> – версия браузера, в которой будут выполняться тесты. По умолчанию – <code>100.0</code>.
@@ -70,7 +76,7 @@ test
 
 Для запуска сборки необходимо перейти в раздел <code>Build with parameters</code> и нажать кнопку <code>Build</code>.
 <p align="center">
-<img title="Сборка в Jenkins" src="media/screenshots/Jenkins_hw17.png">
+<img title="Сборка в Jenkins" src="media/screenshots/Jenkins_diplom.png">
 </p>
 После выполнения сборки, в блоке <code>Build History</code> напротив номера сборки появятся значки <code>Allure Report</code> и <code>Allure TestOps</code>, при клике на которые откроется страница с сформированным html-отчетом и тестовой документацией соответственно.
 
