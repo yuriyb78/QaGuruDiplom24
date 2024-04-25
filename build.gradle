@@ -59,7 +59,7 @@ task all (type: Test) {
     }
 }
 
-task backet (type: Test) {
+task basket (type: Test) {
     useJUnitPlatform {
         includeTags("Basket")
     }
