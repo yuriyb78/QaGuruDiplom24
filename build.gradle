@@ -71,7 +71,7 @@ task catalog (type: Test) {
     }
 }
 
-task favotites (type: Test) {
+task favorites (type: Test) {
     useJUnitPlatform {
         includeTags("Favorites")
     }
