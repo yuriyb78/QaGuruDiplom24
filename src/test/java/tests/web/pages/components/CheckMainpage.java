@@ -10,9 +10,9 @@ import static com.codeborne.selenide.Selenide.$;
 public class CheckMainpage {
 
     private final SelenideElement btnSelectCity = $("[data-qa='header_city_select_btn']");
-    ChooseClientCity chooseClientCity = new ChooseClientCity();
-    @Step("Проверяю что введенное название города отображется на главной странице")
-    public void checkCityName () {
-        btnSelectCity.shouldHave(text(chooseClientCity.getCityName()));
+
+    @Step("Проверяю что введенное название города {nameCity} отображется на главной странице")
+    public void checkCityName (String nameCity) {
+        btnSelectCity.shouldHave(text(nameCity));
     }
 }

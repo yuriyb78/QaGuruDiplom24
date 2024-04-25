@@ -1,19 +1,23 @@
 package tests.web.utils;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class ChooseClientCity {
 
     List<String> nameCities = new ArrayList<String>();
     String nameCity;
 
+    ClassLoader cl = ChooseClientCity.class.getClassLoader();
+
     public String getCityName () {
-        try(BufferedReader reader = new BufferedReader(new FileReader("test-data/city_name.txt"))) {
+        try(InputStream is = cl.getResourceAsStream("test-data/city_name.txt");
+            BufferedReader reader = new BufferedReader(new InputStreamReader((is), UTF_8))) {
             String stringNameCity;
             while ((stringNameCity = reader.readLine()) != null) {
                 nameCities.add(stringNameCity);

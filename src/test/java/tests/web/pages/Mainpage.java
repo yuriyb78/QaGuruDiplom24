@@ -39,10 +39,10 @@ public class Mainpage {
         return this;
     }
 
-    @Step("Ввожу название города")
-    public void setInputCity () {
+    @Step("Ввожу название города {nameCity}")
+    public void setInputCity (String nameCity) {
         inputCity.click();
-        inputCity.setValue(chooseClientCity.getCityName());
+        inputCity.setValue(nameCity);
         sleep(2000);
         inputCity.pressEnter();
     }
