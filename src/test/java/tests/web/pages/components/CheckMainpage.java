@@ -2,7 +2,6 @@ package tests.web.pages.components;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import tests.web.utils.ChooseClientCity;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;

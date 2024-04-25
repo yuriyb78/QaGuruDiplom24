@@ -1,7 +1,6 @@
 package tests.web.utils;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -10,7 +9,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class ChooseClientCity {
 
-    List<String> nameCities = new ArrayList<String>();
+    List<String> nameCities = new ArrayList<>();
     String nameCity;
 
     ClassLoader cl = ChooseClientCity.class.getClassLoader();
@@ -24,7 +23,7 @@ public class ChooseClientCity {
             }
         } catch (IOException e) {
                 System.err.println("Ошибка чтения файла: " + e.getMessage());
-        };
+        }
 
         if (!nameCities.isEmpty()) {
             Random random = new Random();
