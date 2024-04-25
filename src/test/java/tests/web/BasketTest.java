@@ -40,7 +40,6 @@ public class BasketTest extends BaseTests {
     @Feature("Проверка работы с корзиной")
     @Story("Удаление изделия из корзины")
     @DisplayName("Проверить удаление изделия из корзины")
-    @Tag("All")
     @Tag("Basket")
     @Test
     void checkDeleteItemFromProductBasket () {

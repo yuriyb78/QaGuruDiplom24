@@ -53,12 +53,6 @@ tasks.withType(Test) {
     }
 }
 
-task all (type: Test) {
-    useJUnitPlatform {
-        includeTags("All")
-    }
-}
-
 task basket (type: Test) {
     useJUnitPlatform {
         includeTags("Basket")

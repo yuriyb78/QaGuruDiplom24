@@ -44,7 +44,6 @@ public class FavoritesTest extends BaseTests {
     @Feature("Проверка работы с Избранным")
     @Story("Удаление изделия из Избранного")
     @DisplayName("Проверить удаление изделия из Избранного")
-    @Tag("All")
     @Tag("Favorites")
     @Test
     void checkDeleteItemFromFavorites () {

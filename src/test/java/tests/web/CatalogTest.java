@@ -28,7 +28,6 @@ public class CatalogTest extends BaseTests {
 
     @Feature("Проверка каталога")
     @Story("Проверка что при переходе из меню Каталога на странице отображаются карточки изделий ")
-    @Tag("All")
     @Tag("Catalog")
     @CsvFileSource(resources = "/test-data/menu_elements.csv")
     @ParameterizedTest(name = "Проверить отображение карточек изделий в пункте меню {0}")

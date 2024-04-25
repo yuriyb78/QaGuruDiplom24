@@ -18,7 +18,6 @@ public class MainpageTest extends BaseTests{
     @Feature("Проверка главной страницы")
     @Story("Смена города покупателя")
     @DisplayName("Проверить смену города покупателя")
-    @Tag("All")
     @Tag("Mainpage")
     @Test
     void changeCityTest () {
