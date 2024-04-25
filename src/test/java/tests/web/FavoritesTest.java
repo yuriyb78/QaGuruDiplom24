@@ -3,6 +3,7 @@ package tests.web;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import tests.web.pages.CatalogPage;
 import tests.web.pages.FavoritesPage;
@@ -20,6 +21,8 @@ public class FavoritesTest extends BaseTests {
     @Feature("Проверка работы с Избранным")
     @Story("Добавление изделия в Избранное")
     @DisplayName("Проверить добавление изделия в Избранное")
+    @Tag("All")
+    @Tag("Favorites")
     @Test
     void checkAddItemToFavorites () {
         catalogPage.openPageWithItemRings()
@@ -41,6 +44,8 @@ public class FavoritesTest extends BaseTests {
     @Feature("Проверка работы с Избранным")
     @Story("Удаление изделия из Избранного")
     @DisplayName("Проверить удаление изделия из Избранного")
+    @Tag("All")
+    @Tag("Favorites")
     @Test
     void checkDeleteItemFromFavorites () {
         catalogPage.openPageWithItemRings()

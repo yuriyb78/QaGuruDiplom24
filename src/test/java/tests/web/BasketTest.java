@@ -3,6 +3,7 @@ package tests.web;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import tests.web.pages.*;
 import tests.web.pages.components.CheckBasket;
@@ -18,6 +19,8 @@ public class BasketTest extends BaseTests {
     @Feature("Проверка работы с корзиной")
     @Story("Добавление изделия в корзину")
     @DisplayName("Проверить добавление изделия в корзину")
+    @Tag("All")
+    @Tag("Basket")
     @Test
     void checkAddItemInProductBasket () {
         catalogPage.openPageWithItemRings()
@@ -37,6 +40,8 @@ public class BasketTest extends BaseTests {
     @Feature("Проверка работы с корзиной")
     @Story("Удаление изделия из корзины")
     @DisplayName("Проверить удаление изделия из корзины")
+    @Tag("All")
+    @Tag("Basket")
     @Test
     void checkDeleteItemFromProductBasket () {
         catalogPage.openPageWithItemRings()
