@@ -5,28 +5,33 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import tests.web.pages.*;
-import tests.web.pages.components.CheckMainpage;
+import tests.web.pages.MainpagePage;
+import tests.web.pages.CheckingMainpagePage;
+import tests.web.pages.component.ChooseCityModal;
 import tests.web.utils.ChooseClientCity;
 
-public class MainpageTest extends BaseTests{
+@Feature("Проверка главной страницы")
+@Tag("Mainpage")
+@Tag("All")
+public class MainpageTest extends BaseTests {
 
-    Mainpage mainpage = new Mainpage();
-    CheckMainpage checkMainpage = new CheckMainpage();
+    MainpagePage mainpagePage = new MainpagePage();
+    CheckingMainpagePage checkingMainpagePage = new CheckingMainpagePage();
     ChooseClientCity chooseClientCity = new ChooseClientCity();
 
-    @Feature("Проверка главной страницы")
+    ChooseCityModal chooseCityModal = new ChooseCityModal();
+
     @Story("Смена города покупателя")
     @DisplayName("Проверить смену города покупателя")
-    @Tag("Mainpage")
     @Test
-    void changeCityTest () {
+    void changeCityTest() {
         String nameCity = chooseClientCity.getCityName();
-        mainpage.openMainPage()
-                .openSelectCity()
-                .setInputCity(nameCity);
+        mainpagePage.openMainPage()
+                .openSelectCity();
 
-        checkMainpage.checkCityName(nameCity);
+        chooseCityModal.setInputCity(nameCity);
+
+        checkingMainpagePage.checkCityName(nameCity);
     }
 
 }

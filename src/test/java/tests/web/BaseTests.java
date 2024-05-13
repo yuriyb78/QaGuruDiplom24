@@ -7,6 +7,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import tests.web.config.DriverConfig;
 import tests.web.helpers.Attach;
@@ -26,9 +27,7 @@ public class BaseTests {
         Configuration.remote = driverConfig.browserUrl();
         Configuration.baseUrl = "https://sokolov.ru";
         Configuration.pageLoadStrategy = "eager";
-//        Configuration.holdBrowserOpen = true; // Чтобы браузер не закрывался после выполенения теста
 
-        SelenideLogger.addListener("allure", new AllureSelenide());
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
@@ -36,8 +35,11 @@ public class BaseTests {
         ));
         Configuration.browserCapabilities = capabilities;
 
-//        RestAssured.baseURI = "https://demoqa.com";
+    }
 
+    @BeforeEach
+    void allureReport() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
     @AfterEach
@@ -49,4 +51,5 @@ public class BaseTests {
         Selenide.closeWebDriver();
 
     }
+
 }

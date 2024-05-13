@@ -5,37 +5,36 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import tests.web.pages.Mainpage;
-import tests.web.pages.components.CheckCatalogItems;
+import tests.web.pages.MainpagePage;
+import tests.web.pages.CheckingItemsOnCatalogPage;
 
+@Feature("Проверка каталога")
+@Tag("All")
+@Tag("Catalog")
 public class CatalogTest extends BaseTests {
 
-    Mainpage mainpage = new Mainpage();
-    CheckCatalogItems checkCatalogItems = new CheckCatalogItems();
+    MainpagePage mainpagePage = new MainpagePage();
+    CheckingItemsOnCatalogPage checkingItemsOnCatalogPage = new CheckingItemsOnCatalogPage();
 
-    @Feature("Проверка каталога")
+
     @Story("Проверка раздела Каталог на наличие элемента")
-    @Tag("All")
-    @Tag("Catalog")
     @CsvFileSource(resources = "/test-data/menu_elements.csv")
     @ParameterizedTest(name = "Проверить наличие в меню пункта {0}")
-    void checkMenuItemsTest (String menuElementName) {
-        mainpage.openMainPage()
+    void checkMenuItemsTest(String menuElementName) {
+        mainpagePage.openMainPage()
                 .openCatalog();
-        checkCatalogItems.menuShouldHaveMenuElement(menuElementName);
+        checkingItemsOnCatalogPage.menuShouldHaveMenuElement(menuElementName);
 
     }
 
-    @Feature("Проверка каталога")
     @Story("Проверка что при переходе из меню Каталога на странице отображаются карточки изделий ")
-    @Tag("Catalog")
     @CsvFileSource(resources = "/test-data/menu_elements.csv")
     @ParameterizedTest(name = "Проверить отображение карточек изделий в пункте меню {0}")
-    void checkClickMenuItemsTest (String menuElementName) {
-        mainpage.openMainPage()
+    void checkClickMenuItemsTest(String menuElementName) {
+        mainpagePage.openMainPage()
                 .openCatalog()
                 .clickMenuItem(menuElementName);
-        checkCatalogItems.checkHeaderTitle(menuElementName)
+        checkingItemsOnCatalogPage.checkHeaderTitle(menuElementName)
                 .checkProductList();
 
     }

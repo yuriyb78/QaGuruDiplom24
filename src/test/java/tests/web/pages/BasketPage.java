@@ -9,8 +9,8 @@ public class BasketPage {
 
     private final SelenideElement btnDelete = $("[data-qa='delete_item_from_cart']");
 
-    @Step("Нажимаю кнопку 'Удалить'")
-    public void deleteFromCart () {
+    @Step("Нажать кнопку 'Удалить'")
+    public void deleteFromCart() {
         btnDelete.click();
     }
 }

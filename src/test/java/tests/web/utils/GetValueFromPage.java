@@ -10,13 +10,13 @@ public class GetValueFromPage {
     private final SelenideElement productTitle = $("[class^=ProductTitle_title]");
 
     @Step("Сохраняю артикул в переменную")
-    public String getArticulFromProductCard () {
+    public String getArticulFromProductCard() {
 
-        String articulItem= productTitle.getText();
+        String articulItem = productTitle.getText();
         String deleteWords = "Кольцо из белого золота с бриллиантами\nАртикул: ";
         String replacement = "";
 
-        return articulItem.replace(deleteWords,replacement);
+        return articulItem.replace(deleteWords, replacement);
 
     }
 }

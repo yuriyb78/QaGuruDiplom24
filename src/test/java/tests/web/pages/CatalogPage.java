@@ -9,14 +9,14 @@ public class CatalogPage {
 
     private final SelenideElement chooseItem = $("[class^='ProductListItem_product-link']");
 
-    @Step("Открываю страницу каталога Кольца")
-    public CatalogPage openPageWithItemRings () {
+    @Step("Открыть страницу каталога 'Кольца'")
+    public CatalogPage openPageWithItemRings() {
         open("/jewelry-catalog/rings/");
         return this;
     }
 
-    @Step("Выбираю изделие из каталога")
-    public void chooseItemFromCatalog () {
+    @Step("Выбрать изделие из каталога")
+    public void chooseItemFromCatalog() {
         chooseItem.click();
     }
 
