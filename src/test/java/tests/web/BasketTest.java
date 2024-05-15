@@ -6,7 +6,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import tests.web.pages.*;
-import tests.web.pages.CheckingBasketPage;
 import tests.web.utils.GetValueFromPage;
 
 @Feature("Проверка работы с корзиной")
@@ -16,7 +15,6 @@ public class BasketTest extends BaseTests {
 
     CatalogPage catalogPage = new CatalogPage();
     ProductCardPage productCardPage = new ProductCardPage();
-    CheckingBasketPage checkingBasketPage = new CheckingBasketPage();
     BasketPage basketPage = new BasketPage();
 
     @Story("Добавление изделия в корзину")
@@ -32,7 +30,7 @@ public class BasketTest extends BaseTests {
                 .addToBasket()
                 .clickButtonConfirmOrder();
 
-        checkingBasketPage.checkBasket()
+        basketPage.checkBasket()
                 .checkArticulNumber(article);
 
     }
@@ -46,8 +44,8 @@ public class BasketTest extends BaseTests {
         productCardPage.chooseSizeItem()
                 .addToBasket()
                 .clickButtonConfirmOrder();
-        basketPage.deleteFromCart();
-        checkingBasketPage.checkBasketIsEmpty();
+        basketPage.deleteFromCart()
+                .checkBasketIsEmpty();
 
     }
 

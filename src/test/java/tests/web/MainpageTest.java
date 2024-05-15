@@ -6,7 +6,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import tests.web.pages.MainpagePage;
-import tests.web.pages.CheckingMainpagePage;
 import tests.web.pages.component.ChooseCityModal;
 import tests.web.utils.ChooseClientCity;
 
@@ -16,9 +15,7 @@ import tests.web.utils.ChooseClientCity;
 public class MainpageTest extends BaseTests {
 
     MainpagePage mainpagePage = new MainpagePage();
-    CheckingMainpagePage checkingMainpagePage = new CheckingMainpagePage();
     ChooseClientCity chooseClientCity = new ChooseClientCity();
-
     ChooseCityModal chooseCityModal = new ChooseCityModal();
 
     @Story("Смена города покупателя")
@@ -31,7 +28,7 @@ public class MainpageTest extends BaseTests {
 
         chooseCityModal.setInputCity(nameCity);
 
-        checkingMainpagePage.checkCityName(nameCity);
+        mainpagePage.checkCityName(nameCity);
     }
 
 }

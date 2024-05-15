@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import tests.web.pages.CatalogPage;
 import tests.web.pages.FavoritesPage;
 import tests.web.pages.ProductCardPage;
-import tests.web.pages.CheckingFavoritesPage;
 import tests.web.utils.GetValueFromPage;
 
 @Feature("Проверка работы с Избранным")
@@ -19,8 +18,6 @@ public class FavoritesTest extends BaseTests {
     CatalogPage catalogPage = new CatalogPage();
     ProductCardPage productCardPage = new ProductCardPage();
     FavoritesPage favoritesPage = new FavoritesPage();
-    CheckingFavoritesPage checkingFavoritesPage = new CheckingFavoritesPage();
-
 
     @Story("Добавление изделия в Избранное")
     @DisplayName("Проверить добавление изделия в Избранное")
@@ -32,12 +29,12 @@ public class FavoritesTest extends BaseTests {
 
         String article = new GetValueFromPage().getArticulFromProductCard();
 
-        checkingFavoritesPage.checkIconFavoritesColor()
+        favoritesPage.checkIconFavoritesColor()
                 .checkFavoritesCounter();
 
         productCardPage.clickBthFavorites();
 
-        checkingFavoritesPage.checkFavorites()
+        favoritesPage.checkFavorites()
                 .checkArticulNumber(article);
 
     }
@@ -50,7 +47,7 @@ public class FavoritesTest extends BaseTests {
                 .chooseItemFromCatalog();
         productCardPage.addItemToFavorites()
                 .clickBthFavorites();
-        favoritesPage.deleteFromFavorites();
-        checkingFavoritesPage.checkFavoritesIsEmpty();
+        favoritesPage.deleteFromFavorites()
+                .checkFavoritesIsEmpty();
     }
 }

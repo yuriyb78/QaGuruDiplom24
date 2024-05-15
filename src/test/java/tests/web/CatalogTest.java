@@ -5,8 +5,8 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import tests.web.pages.CatalogPage;
 import tests.web.pages.MainpagePage;
-import tests.web.pages.CheckingItemsOnCatalogPage;
 
 @Feature("Проверка каталога")
 @Tag("All")
@@ -14,8 +14,7 @@ import tests.web.pages.CheckingItemsOnCatalogPage;
 public class CatalogTest extends BaseTests {
 
     MainpagePage mainpagePage = new MainpagePage();
-    CheckingItemsOnCatalogPage checkingItemsOnCatalogPage = new CheckingItemsOnCatalogPage();
-
+    CatalogPage catalogPage = new CatalogPage();
 
     @Story("Проверка раздела Каталог на наличие элемента")
     @CsvFileSource(resources = "/test-data/menu_elements.csv")
@@ -23,7 +22,7 @@ public class CatalogTest extends BaseTests {
     void checkMenuItemsTest(String menuElementName) {
         mainpagePage.openMainPage()
                 .openCatalog();
-        checkingItemsOnCatalogPage.menuShouldHaveMenuElement(menuElementName);
+        catalogPage.menuShouldHaveMenuElement(menuElementName);
 
     }
 
@@ -34,7 +33,7 @@ public class CatalogTest extends BaseTests {
         mainpagePage.openMainPage()
                 .openCatalog()
                 .clickMenuItem(menuElementName);
-        checkingItemsOnCatalogPage.checkHeaderTitle(menuElementName)
+        catalogPage.checkHeaderTitle(menuElementName)
                 .checkProductList();
 
     }
